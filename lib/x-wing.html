@@ -6,6 +6,7 @@
 <script src="../bower_components/jquery/jquery.js"></script>
 <script src="../bower_components/handlebars/handlebars.js"></script>
 <script src="../bower_components/ember/ember.js"></script>
+<!--<script src="http://localhost:3000/dronestream/nodecopter-client.js"></script>-->
 <script src="x-wing.js"></script>
 
 <script type="text/x-handlebars">
@@ -15,14 +16,49 @@
 <script type="text/x-handlebars" id="components/x-wing">
   <div class="threed x-wing-control-group">
     <div class="x-wing-move">
-      {{#x-wing-action action="front"}} {{icon-arrow rotate=-90}} {{/x-wing-action}}<br>
-      {{#x-wing-action action="left"}}  {{icon-arrow rotate=180}} {{/x-wing-action}}
-      {{spacer-gif width=128}}
-      {{#x-wing-action action="right"}} {{icon-arrow}}            {{/x-wing-action}}<br>
-      {{#x-wing-action action="back"}}  {{icon-arrow rotate=90}}  {{/x-wing-action}}
+      {{#x-wing-action action="front" val=vals.front}}
+        {{icon-arrow rotate=-90}}
+      {{/x-wing-action}}<br>
+
+      {{#x-wing-action action="left" val=vals.left}}
+        {{icon-arrow rotate=180}}
+      {{/x-wing-action}}
+
+      {{icon-plus}}
+
+      {{#x-wing-action action="right" val=vals.right}}
+        {{icon-arrow}}
+      {{/x-wing-action}}<br>
+
+      {{#x-wing-action action="back" val=vals.back}}
+        {{icon-arrow rotate=90}}
+      {{/x-wing-action}}
     </div>
   </div>
 
+  <div class="threed x-wing-control-group">
+    <div class="x-wing-pov">
+      {{#x-wing-action action="up" val=vals.up}}
+        {{icon-triangle rotate=-90}}
+      {{/x-wing-action}}<br>
+
+      {{#x-wing-action action="counterClockwise" val=vals.counterClockwise}}
+        {{icon-triangle rotate=180}}
+      {{/x-wing-action}}
+
+      {{icon-eye}}
+
+      {{#x-wing-action action="clockwise" val=vals.clockwise}}
+        {{icon-triangle}}
+      {{/x-wing-action}}<br>
+
+      {{#x-wing-action action="down" val=vals.down}}
+        {{icon-triangle rotate=90}}
+       {{/x-wing-action}}
+    </div>
+  </div>
+
+  <br>
   <div class="x-wing-control-group">
     {{#x-wing-action action="toggleLaunchLand"}}
       {{#if launched}}
@@ -33,14 +69,8 @@
     {{/x-wing-action}}
   </div>
 
-  <div class="threed x-wing-control-group">
-    <div class="x-wing-pov">
-      {{#x-wing-action action="up"}}               {{icon-triangle rotate=-90}} {{/x-wing-action}}<br>
-      {{#x-wing-action action="counterClockwise"}} {{icon-triangle rotate=180}} {{/x-wing-action}}
-      {{icon-eye}}
-      {{#x-wing-action action="clockwise"}}        {{icon-triangle}}           {{/x-wing-action}}<br>
-      {{#x-wing-action action="down"}}             {{icon-triangle rotate=90}} {{/x-wing-action}}
-    </div>
+  <div class="x-wing-control-group">
+    {{x-wing-video}}
   </div>
 </script>
 
@@ -97,6 +127,14 @@
 	c0-44.183,35.816-80,80-80c44.183,0,80,35.817,80,80C338,300.184,302.183,336,258,336z M303,256c0,24.854-20.147,45-45,45
 	c-24.854,0-45-20.146-45-45c0-2.979,0.297-5.889,0.85-8.706c22.112,8.115,43.895-13.234,36.069-35.556
 	c2.623-0.477,5.32-0.738,8.081-0.738C282.853,211,303,231.147,303,256z"/>
+</svg>
+</script>
+
+<script type="text/x-handlebars" id="components/icon-plus">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 {{bind-attr width=width height=height}} viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<polygon id="plus-2-icon" points="462,209.528 302.471,209.528 302.471,50 209.529,50 209.529,209.528 50,209.528 50,302.47 
+	209.529,302.47 209.529,462 302.471,462 302.471,302.47 462,302.47 "/>
 </svg>
 </script>
 

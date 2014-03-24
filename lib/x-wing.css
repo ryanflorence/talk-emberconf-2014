@@ -17,12 +17,21 @@ x-wing svg * {
 }
 
 x-wing:focus svg * {
-  fill: #000;
+  fill: #444;
 }
 
 x-wing-action {
   display: inline-block;
 }
+
+x-wing .active svg * {
+  fill: hsl(200, 50%, 50%);
+}
+
+x-wing .active.full svg * {
+  fill: hsl(350, 50%, 50%);
+}
+
 
 .threed {
   display: inline-block;
