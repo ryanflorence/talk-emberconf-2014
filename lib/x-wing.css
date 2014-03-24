@@ -1,0 +1,46 @@
+body {
+  text-align: center;
+}
+
+icon {
+  display: inline-block;
+}
+
+x-wing {
+  display: inline-block;
+  outline: none;
+  -webkit-user-select: none;
+}
+
+x-wing svg * {
+  fill: #ccc;
+}
+
+x-wing:focus svg * {
+  fill: #000;
+}
+
+x-wing-action {
+  display: inline-block;
+}
+
+.threed {
+  display: inline-block;
+  -webkit-perspective: 600;
+}
+
+.x-wing-control-group {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  margin: 20px;
+}
+
+.x-wing-move {
+  -webkit-transform: rotateX(50deg);
+}
+
+.x-wing-pov {
+  -webkit-transform: rotateX(-50deg);
+}
+

@@ -1,0 +1,51 @@
+<!doctype html public "enemy">
+<meta charset="utf-8">
+<title>x-script</title>
+<script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/handlebars/handlebars.js"></script>
+<script src="../bower_components/ember/ember.js"></script>
+
+
+<script type="text/x-handlebars">
+
+  {{x-script src="../bower_components/cornify/cornify.js"}}
+
+  {{#x-script}}
+    cornify.pizzazz();
+  {{/x-script}}
+
+</script>
+
+<script>
+  App = Ember.Application.create();
+
+  App.XScriptComponent = Ember.Component.extend({
+
+    src: null,
+
+    layout: Ember.Handlebars.compile('{{{yield}}}'),
+
+    hide: function() {
+      this.get('element').style.display = 'none';
+    }.on('willInsertElement'),
+
+    fetchOrYield: function() {
+      this.get('src') ? this.fetchSrc() : this.yieldSrc();
+    }.on('didInsertElement'),
+
+    fetchSrc: function() {
+      var req = new XMLHttpRequest();
+      req.open('GET', this.get('src'), false);
+      req.send();
+      this.eval(req.responseText);
+    },
+
+    eval: function(text) {
+      eval(text);
+    },
+
+    yieldSrc: function() {
+      this.eval(this.get('element').textContent);
+    }
+  });
+</script>

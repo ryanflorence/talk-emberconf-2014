@@ -1,0 +1,102 @@
+<!doctype html public "enemy">
+<meta charset="utf-8">
+<title>x-script</title>
+<link rel="stylesheet" href="x-wing.css">
+
+<script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/handlebars/handlebars.js"></script>
+<script src="../bower_components/ember/ember.js"></script>
+<script src="x-wing.js"></script>
+
+<script type="text/x-handlebars">
+  {{x-wing url="http://localhost:3000"}}
+</script>
+
+<script type="text/x-handlebars" id="components/x-wing">
+  <div class="threed x-wing-control-group">
+    <div class="x-wing-move">
+      {{#x-wing-action action="front"}} {{icon-arrow rotate=-90}} {{/x-wing-action}}<br>
+      {{#x-wing-action action="left"}}  {{icon-arrow rotate=180}} {{/x-wing-action}}
+      {{spacer-gif width=128}}
+      {{#x-wing-action action="right"}} {{icon-arrow}}            {{/x-wing-action}}<br>
+      {{#x-wing-action action="back"}}  {{icon-arrow rotate=90}}  {{/x-wing-action}}
+    </div>
+  </div>
+
+  <div class="x-wing-control-group">
+    {{#x-wing-action action="toggleLaunchLand"}}
+      {{#if launched}}
+        {{icon-land}}
+      {{else}}
+        {{icon-launch}}
+      {{/if}}
+    {{/x-wing-action}}
+  </div>
+
+  <div class="threed x-wing-control-group">
+    <div class="x-wing-pov">
+      {{#x-wing-action action="up"}}               {{icon-triangle rotate=-90}} {{/x-wing-action}}<br>
+      {{#x-wing-action action="counterClockwise"}} {{icon-triangle rotate=180}} {{/x-wing-action}}
+      {{icon-eye}}
+      {{#x-wing-action action="clockwise"}}        {{icon-triangle}}           {{/x-wing-action}}<br>
+      {{#x-wing-action action="down"}}             {{icon-triangle rotate=90}} {{/x-wing-action}}
+    </div>
+  </div>
+</script>
+
+
+
+<script type="text/x-handlebars" id="components/icon-arrow">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 {{bind-attr width=width height=height}} viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<polygon points="206.422,462 134.559,390.477 268.395,256 134.559,121.521 206.422,50 411.441,256 "/>
+</svg>
+</script>
+
+<script type="text/x-handlebars" id="components/icon-launch">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 {{bind-attr width=width height=height}} viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<path id="rocket-8-icon" d="M269.418,462c55.074-28.27,87.182-89.014,83.71-131.721c-22.055,14.989-59.403,33.205-79.173,39.447
+	C296.102,404.973,290.133,434.461,269.418,462z M142.36,238.132c6.243-19.771,24.46-57.118,39.448-79.173
+	C139.1,155.484,78.359,187.594,50.088,242.67C77.625,221.955,107.115,215.984,142.36,238.132z M251.464,345.998l-85.294-85.295
+	c32.542-98.504,127.049-222.775,294.613-209.76C474.934,218.625,353.33,310.238,251.464,345.998z M311.134,233.413
+	c8.964-8.964,8.964-23.497,0-32.461c-8.965-8.962-23.496-8.962-32.461,0.004c-8.962,8.962-8.964,23.494,0,32.457
+	C287.637,242.377,302.17,242.377,311.134,233.413z M385.043,180.601c14.791-14.788,14.793-38.771,0.002-53.56
+	s-38.771-14.789-53.561,0c-14.791,14.791-14.789,38.77,0,53.561C346.275,195.391,370.253,195.391,385.043,180.601z M221.334,359.653
+	c-24.438,45.249-71.34,78.444-140.329,68.243c-9.615-65.026,24.423-112.088,72.212-136.361l14.76,14.762
+	c-52.904,24.277-56.355,68.723-52.805,87.521c19.368,3.604,67.054,1.286,91.55-48.776L221.334,359.653z"/>
+</svg>
+</script>
+
+
+<script type="text/x-handlebars" id="components/icon-land">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 {{bind-attr width=width height=height}} viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<path id="rocket-icon" d="M280.5,444h-49l-16.75-29.209h82.5L280.5,444z M406,462c18.334-57-1.25-120.5-32.833-147.333
+	C368.334,340,355.25,378,346,395.791C385.25,404.75,401.334,429,406,462z M166,395.791C156.75,378,143.666,340,138.833,314.667
+	C107.25,341.5,87.666,405,106,462C110.666,429,126.75,404.75,166,395.791z M314.389,394.945H197.722
+	C152.61,305.319,132.253,155.698,255.751,50C380.11,155,359.598,300.82,314.389,394.945z M278.2,277.14
+	c0-12.261-9.939-22.2-22.2-22.2s-22.2,9.939-22.2,22.2s9.939,22.2,22.2,22.2S278.2,289.4,278.2,277.14z M292.629,190.473
+	c0-20.231-16.399-36.63-36.629-36.63c-20.231,0-36.63,16.399-36.63,36.63c0,20.229,16.399,36.63,36.63,36.63
+	C276.229,227.103,292.629,210.702,292.629,190.473z"/>
+</svg>
+</script>
+
+<script type="text/x-handlebars" id="components/icon-triangle">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 {{bind-attr width=width height=height}} viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<polygon id="arrow-37-icon" points="418.999,256.001 121.001,462 121.001,50 "/>
+</svg>
+</script>
+
+<script type="text/x-handlebars" id="components/icon-eye">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 {{bind-attr width=width height=height}} viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<path id="eye-3-icon" d="M256.25,141.666c-129.917,0-206.25,107-206.25,107s83,121.668,206.25,121.668
+	C389,370.334,462,248.666,462,248.666S388.334,141.666,256.25,141.666z M258,336c-44.184,0-80-35.816-80-80
+	c0-44.183,35.816-80,80-80c44.183,0,80,35.817,80,80C338,300.184,302.183,336,258,336z M303,256c0,24.854-20.147,45-45,45
+	c-24.854,0-45-20.146-45-45c0-2.979,0.297-5.889,0.85-8.706c22.112,8.115,43.895-13.234,36.069-35.556
+	c2.623-0.477,5.32-0.738,8.081-0.738C282.853,211,303,231.147,303,256z"/>
+</svg>
+</script>
+
