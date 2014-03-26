@@ -1,4 +1,4 @@
-<!doctype html public "enemy">
+<!doctype html public "display of affection">
 <meta charset="utf-8">
 <title>x-script</title>
 <script src="../bower_components/jquery/jquery.js"></script>
@@ -7,13 +7,15 @@
 
 
 <script type="text/x-handlebars">
+  <p>Wait for it ...</p>
 
   {{x-script src="../bower_components/cornify/cornify.js"}}
 
   {{#x-script}}
-    cornify.pizzazz();
+    setTimeout(function() {
+      cornify.pizzazz();
+    }, 1000);
   {{/x-script}}
-
 </script>
 
 <script>

@@ -10,16 +10,23 @@
   {{input type="number" value=x}}<br>
   {{input type="number" value=y}}
 </p>
+
 {{spacer-gif height=y}}
-I need {{spacer-gif width=x}} some space.
+
+<p style="font-size: 36px; line-height: 1.3">
+The genius behind Ryan’s design of spacer-gif is that it solves putting
+
+{{spacer-gif width=x}}
+
+space between two HTML elements, a longtime problem in computer science. … And
+any element can be moved right away.  There’s no friction to change the
+California Style Sheets; you just add what you want with the height and width.
+It’s like sliding Lego around on the floor.
+</p>
 </script>
 
 <script>
   App = Ember.Application.create();
-
-  App.ApplicationController = Ember.Controller.extend({
-    space: 0
-  });
 
   App.SpacerGifComponent = Ember.Component.extend({
     tagName: 'img',

@@ -37,6 +37,7 @@ x-a { color: blue; text-decoration: underline; cursor: pointer; }
       return this.get('href') ? 0 : null;
     }.property('href'),
 
+    // isn't it great you are forced to stop and name things?
     goToHref: function() {
       var href = this.get('href');
       href.charAt(0) == '#' ?
