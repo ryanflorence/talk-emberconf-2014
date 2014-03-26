@@ -1,7 +1,0 @@
-#!/bin/sh
-cd ~/Code/github/instructure/ic-tabs
-git co gh-pages
-cd ../ic-menu
-git co gh-pages
-cd ..
-http-server

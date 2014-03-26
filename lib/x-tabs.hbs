@@ -116,14 +116,14 @@
 
 {{! components/x-tabs-top }}
 {{#x-tabs}}
+  {{#each tab in tabs}}
+    {{#x-tabpanel}} {{tab.body}} {{/x-tabpanel}}
+  {{/each}}
   {{#x-tablist class="tablist"}}
     {{#each tab in tabs}}
       {{#x-tab}} {{tabs.name}} {{/x-tab}}
     {{/each}}
   {{/x-tablist}}
-  {{#each tab in tabs}}
-    {{#x-tabpanel}} {{tab.body}} {{/x-tabpanel}}
-  {{/each}}
 {{/x-tabs}}
 
 {{! components/x-tabs-bottom }}
