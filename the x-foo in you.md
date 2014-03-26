@@ -26,14 +26,8 @@ A custom element with
 ## When not to use it
 
 ```handlebars
-{{#each assignment in assignments}}
-  {{x-assignment assignment=assignment assignments=assignments}}
-{{/each}}
-
-{{#each assignment in assignments}}
-  {{partial "assignment"}}
-  {{render "assignment" assignment}}
-{{/each}}
+{{x-assignment model=model}}
+{{render "assignment" model}}
 ```
 
 ## Communication

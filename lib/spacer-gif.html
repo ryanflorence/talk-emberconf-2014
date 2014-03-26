@@ -1,0 +1,32 @@
+<!doctype html public "offender">
+<meta charset="utf-8">
+<title>spacer-gif</title>
+<script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/handlebars/handlebars.js"></script>
+<script src="../bower_components/ember/ember.js"></script>
+
+<script type="text/x-handlebars">
+<p>
+  {{input type="number" value=x}}<br>
+  {{input type="number" value=y}}
+</p>
+{{spacer-gif height=y}}
+I need {{spacer-gif width=x}} some space.
+</script>
+
+<script>
+  App = Ember.Application.create();
+
+  App.ApplicationController = Ember.Controller.extend({
+    space: 0
+  });
+
+  App.SpacerGifComponent = Ember.Component.extend({
+    tagName: 'img',
+    attributeBindings: ['src', 'width', 'height'],
+    width: 1,
+    height: 1,
+    src: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+  });
+</script>
+

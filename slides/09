@@ -1,0 +1,14 @@
+Distributing
+
+- Register your stuff on the container with
+  an application initializer               
+
+- Precompile templates individually as the 
+  `layout` property of the component       
+
+- Use `ic-styled` for the minimum viable   
+  amount of css for the component to work  
+
+- Use broccoli-dist-es6-module and publish 
+  to your favorite package managers        
+

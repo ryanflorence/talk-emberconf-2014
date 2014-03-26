@@ -1,0 +1,156 @@
+{{! application template }}
+{{x-tabs tabs=groups}}
+
+{{! x-tabs template }}
+<div role="tablist">
+  {{#each tab in tabs}}
+    <div role="tab">{{tab.label}}</div>
+  {{/each}}
+  {{#each tab in tabs}}
+    <div role="tabpanel">{{tab.body}}</div>
+  {{/each}}
+</div>
+
+{{!
+
+- XTabsComponent does EVERYTHING, its going to get
+  unweildy, large, and despised very quickly
+
+- How do you handle the events on the tabs?
+  - Go select elements and add handlers manually?
+  - Check the `event.target`?
+
+- How do users add classes to the tab elements
+  so that it uses some css framework's styles?
+
+- To be accessible, the tabs need some attributes that
+  get changed as the tabs state changes. Where do I do
+  that?
+
+- Why are we forcing tab.label and tab.body on people?
+
+- What if I want my tabs on the bottom?
+
+- What if I don't have data and just want static tabs,
+  or just one static tab and the rest data driven?
+
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{! application template 2 }}
+{{#x-tabs}}
+  {{#x-tablist class="tab-list"}}
+    {{#x-tab}}Default{{/x-tab}}
+    {{#each group in groups}}
+      {{#x-tab}} {{group.name}} {{/x-tab}}
+    {{/each}}
+  {{/x-tablist}}
+
+  {{#x-tabpanel}}Blah blah blah...{{/x-tabpanel}}
+  {{#each group in groups}}
+    {{#x-tabpanel}} {{group.description}} {{/x-tabpanel}}
+  {{/each}}
+{{/x-tabs}}
+
+{{! no more x-tabs template }}
+
+{{!
+
+- Can use group.name, group.description
+- Can add classes to elements, they aren't locked up
+  in a template
+- Can have static tabs and dynamic tabs together
+- Child components can now handle their own state
+  and events
+
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{! okay, I get it, but wasn't the first thing more convenient? }}
+
+{{! application template 3 }}
+{{x-tabs-top tabs=groups}}
+{{x-tabs-bottom tabs=groups}}
+
+{{! components/x-tabs-top }}
+{{#x-tabs}}
+  {{#x-tablist class="tablist"}}
+    {{#each tab in tabs}}
+      {{#x-tab}} {{tabs.name}} {{/x-tab}}
+    {{/each}}
+  {{/x-tablist}}
+  {{#each tab in tabs}}
+    {{#x-tabpanel}} {{tab.body}} {{/x-tabpanel}}
+  {{/each}}
+{{/x-tabs}}
+
+{{! components/x-tabs-bottom }}
+{{#x-tabs}}
+  {{#each tab in tabs}}
+    {{#x-tabpanel}} {{tab.body}} {{/x-tabpanel}}
+  {{/each}}
+  {{#x-tablist class="tablist"}}
+    {{#each tab in tabs}}
+      {{#x-tab}} {{tabs.name}} {{/x-tab}}
+    {{/each}}
+  {{/x-tablist}}
+{{/x-tabs}}
+
+{{!
+
+- Get the composition flexibility with "convenience
+  components" instead of crazy hacks, keep it declarative!
+
+- Two things to remember
+  - Bias toward no templates
+  - Sub-components are easily identified by events or
+    class/attribute management
+
+- Best reference is <select><option/></select>
+
+}}
+
+
+

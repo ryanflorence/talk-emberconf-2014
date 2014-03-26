@@ -1,21 +1,18 @@
 <!doctype html public "enemy">
 <meta charset="utf-8">
-<title>x-script</title>
+<title>x-a</title>
 <script src="../bower_components/jquery/jquery.js"></script>
 <script src="../bower_components/handlebars/handlebars.js"></script>
 <script src="../bower_components/ember/ember.js"></script>
+
 <style>
 x-a { color: blue; text-decoration: underline; cursor: pointer; }
 </style>
 
-
 <script type="text/x-handlebars">
-
   {{#x-a href="http://emberjs.com"}}Ember.js{{/x-a}}
-  {{#x-a href="#foo"}}foo{{/x-a}}
-
-  <h2 id="foo" style="margin-top: 1000px">Foo</h2>
-
+  {{#x-a href="#about"}}About{{/x-a}}
+  <h2 id="about" style="margin-top: 1000px">Foo</h2>
 </script>
 
 <script>
@@ -61,3 +58,5 @@ x-a { color: blue; text-decoration: underline; cursor: pointer; }
 
   });
 </script>
+
+
